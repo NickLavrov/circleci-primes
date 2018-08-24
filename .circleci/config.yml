@@ -6,6 +6,8 @@ jobs:
     working_directory: /src/circleci-primes
     steps:
       - checkout
+      - run: pwd
+      - run: ls
       - run: apk add bc
       - run: ./nextprime.sh
       - run: echo "The next prime is $( tail -n 1 primes.txt )."
