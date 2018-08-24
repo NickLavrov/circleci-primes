@@ -6,9 +6,7 @@ jobs:
     working_directory: /src/circleci-primes
     steps:
       - checkout
-      - run: pwd
-      - run: ls
-      - run: apk add bc
+      - run: apk add bc git
       - run: ./nextprime.sh
       - run: echo "The next prime is $( tail -n 1 primes.txt )."
       - run: git commit -am 'Add $( tail -n 1 primes.txt ) to prime list.'
