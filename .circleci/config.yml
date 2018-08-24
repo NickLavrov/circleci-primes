@@ -6,10 +6,11 @@ jobs:
     working_directory: /src/circleci-primes
     steps:
       - checkout
-      - run: apk add bc git
+      - add_ssh_keys
+      - run: apk add bc git openssh
       - run: ./nextprime.sh
       - run: echo "The next prime is $( tail -n 1 primes.txt )."
       - run: git config --global user.email "CircleCI@CircleCI.com"
       - run: git config --global user.name "CircleCI"
       - run: git commit -am 'Add $( tail -n 1 primes.txt ) to prime list.'
-      - run: git push
+      - run: git push origin HEAD:master
