@@ -9,5 +9,7 @@ jobs:
       - run: apk add bc git
       - run: ./nextprime.sh
       - run: echo "The next prime is $( tail -n 1 primes.txt )."
+      - run: git config --global user.email "CircleCI@CircleCI.com"
+      - run: git config --global user.name "CircleCI"
       - run: git commit -am 'Add $( tail -n 1 primes.txt ) to prime list.'
       - run: git push
