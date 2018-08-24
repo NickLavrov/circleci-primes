@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: alpine:3.7
+    working_directory: circleci-primes
     steps:
       - checkout
       - run: apk add bc
